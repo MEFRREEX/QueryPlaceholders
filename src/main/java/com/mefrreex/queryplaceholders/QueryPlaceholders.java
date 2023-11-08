@@ -89,14 +89,14 @@ public class QueryPlaceholders extends PluginBase {
     }
 
     /**
-     * Timeout time for server response
+     * Timeout time for query request
      */
     public int getTimeout() {
         return this.getConfig().getInt("timeout", 2000);
     }
 
     /**
-     * Server update rate
+     * Interval for updating query information
      */
     public int getUpdate() {
         return this.getConfig().getInt("update", 1200);
