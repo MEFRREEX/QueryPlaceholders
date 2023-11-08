@@ -1,0 +1,17 @@
+# Timeout time for query request
+timeout: 2000 # In milliseconds
+
+# Interval for updating query information
+update: 1200 # In ticks
+
+# Servers for query
+servers:
+  anarchy:                # Server name
+    address: "soulmc.top" # Server address
+    port: 19134           # Server port
+  survival:
+    address: "soulmc.top"
+    port: 19135
+  kitpvp:
+    address: "soulmc.top"
+    port: 19136
