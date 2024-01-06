@@ -19,6 +19,11 @@
 	        <id>jitpack.io</id>
 	        <url>https://jitpack.io</url>
 	    </repository>
+        <repository>
+            <id>opencollab-repository-maven-snapshots</id>
+            <name>Opencollab Repository</name>
+            <url>https://repo.opencollab.dev/maven-snapshots</url>
+        </repository>
     </repositories>
 
     <dependencies>
