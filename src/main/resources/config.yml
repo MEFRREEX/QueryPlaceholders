@@ -6,12 +6,9 @@ update: 1200 # In ticks
 
 # Servers for query
 servers:
-  anarchy:                # Server name
-    address: "soulmc.top" # Server address
-    port: 19134           # Server port
-  survival:
-    address: "soulmc.top"
-    port: 19135
-  kitpvp:
-    address: "soulmc.top"
-    port: 19136
+  zeqa:                 # Server name
+    address: "zeqa.net" # Server address
+    port: 19132         # Server port
+  nethergames:
+    address: "play.nethergames.org"
+    port: 19132
