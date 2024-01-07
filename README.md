@@ -45,3 +45,22 @@ Getting BedrockQuery class
 ```java
 BedrockQuery bedrockQuery = BedrockQueryFactory.getBedrockQuery();
 ```
+
+## 🔌 Maven
+Repository
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+```
+Dependency
+```xml
+<dependency>
+    <groupId>com.github.MEFRREEX</groupId>
+    <artifactId>QueryPlaceholders</artifactId>
+    <version>1.0</version>
+</dependency>
+```
