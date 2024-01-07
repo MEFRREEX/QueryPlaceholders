@@ -10,15 +10,15 @@ import java.util.Map;
 public class BedrockQueryFactory {
     
     @Getter
-    private static BedrockQuery query;
+    private static BedrockQuery bedrockQuery;
 
     private static final Map<ServerEntry, BedrockQueryResponse> queryMap = new HashMap<>();
 
     /**
      * Set BedrockQuery
      */
-    public static void setBedrockQuery(@NonNull BedrockQuery query) {
-        BedrockQueryFactory.query = query;
+    public static void setBedrockQuery(@NonNull BedrockQuery bedrockQuery) {
+        BedrockQueryFactory.bedrockQuery = bedrockQuery;
     }
 
     /**
@@ -35,7 +35,7 @@ public class BedrockQueryFactory {
      * @param server ServerAddress
      */
     public static void createOrUpdate(@NonNull ServerEntry server) {
-        query.create(server.address(), server.port(), response -> {
+        bedrockQuery.create(server.address(), server.port(), response -> {
             queryMap.put(server, response);
         });
     }

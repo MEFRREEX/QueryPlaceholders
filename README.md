@@ -41,3 +41,7 @@ Getting ServerEntry class by name
 ```java
 ServerEntry serverEntry = queryPlaceholders.getServer("server_name");
 ```
+Getting BedrockQuery class
+```java
+BedrockQuery bedrockQuery = BedrockQueryFactory.getBedrockQuery();
+```

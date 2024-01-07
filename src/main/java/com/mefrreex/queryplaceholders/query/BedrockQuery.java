@@ -7,6 +7,11 @@ import java.util.function.Consumer;
 
 import lombok.NonNull;
 
+/**
+ * The author of this class Justin, I just improved it a little bit 
+ * https://github.com/justin-eckenweber/BedrockServerQuery
+ * @author justin-eckenweber
+ */
 public class BedrockQuery {
 
     private static final byte UNCONNECTED_PING = 0x01;
