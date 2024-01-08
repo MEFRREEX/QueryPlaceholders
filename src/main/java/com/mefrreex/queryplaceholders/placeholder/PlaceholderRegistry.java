@@ -1,27 +1,47 @@
 package com.mefrreex.queryplaceholders.placeholder;
 
-import com.mefrreex.queryplaceholders.QueryPlaceholders;
+import cn.nukkit.Player;
+import com.creeperface.nukkit.placeholderapi.api.PlaceholderAPI;
+import com.creeperface.nukkit.placeholderapi.api.PlaceholderParameters.Parameter;
+import com.mefrreex.queryplaceholders.placeholder.placeholders.PlaceholderMaxPlayers;
+import com.mefrreex.queryplaceholders.placeholder.placeholders.PlaceholderMotd;
+import com.mefrreex.queryplaceholders.placeholder.placeholders.PlaceholderPlayerCount;
+import com.mefrreex.queryplaceholders.placeholder.placeholders.PlaceholderVersion;
+
+import java.util.List;
 
 public class PlaceholderRegistry {
+    
+    private static final PlaceholderAPI placeholderApi = PlaceholderAPI.getInstance();
 
     /**
-     * Register all query placeholders
+     * Register all placeholders
      */
-    public static void init(QueryPlaceholders main) {
-        register("player_count", name -> main.getQuery(name).playerCount()); // %query_player_count<server_name>%
-        register("max_players", name -> main.getQuery(name).maxPlayers()); // %query_max_players<server_name>%
-        register("motd", name -> main.getQuery(name).motd()); // %query_motd<server_name>%
-        register("minecraft_version", name -> main.getQuery(name).minecraftVersion()); // %query_minecraft_version<server_name>%
+    public static void init() {
+        register(new PlaceholderPlayerCount());
+        register(new PlaceholderMaxPlayers());
+        register(new PlaceholderMotd());
+        register(new PlaceholderVersion());
     }
 
     /**
-     * Register query placeholder
-     * @param name     Placeholder name
-     * @param supplier PlaceholderSupplier
+     * Register placeholder
+     * @param placeholder Placeholder
      */
-    public static void register(String name, PlaceholderSupplier supplier) {
-        Placeholder.create(name)
-            .supplier(supplier)
-            .register();
+    public static void register(Placeholder placeholder) {
+        placeholderApi.builder(placeholder.getName(), String.class)
+            .processParameters(true)
+            .visitorLoader(entry -> {
+
+                Player player = entry.getPlayer();
+                List<Parameter> parameters = entry.getParameters().getUnnamed();
+
+                try {
+                    return placeholder.onUpdate(player, parameters);
+                } catch(Exception e) {
+                    throw new RuntimeException("An error occurred when updating the placeholder", e);
+                }
+            })
+            .build();
     }
 }

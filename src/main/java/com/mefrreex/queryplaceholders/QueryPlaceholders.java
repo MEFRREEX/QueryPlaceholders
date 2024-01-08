@@ -36,7 +36,7 @@ public class QueryPlaceholders extends PluginBase {
         this.loadConfig();
         this.scheduleTask();
         BedrockQueryFactory.setBedrockQuery(new BedrockQuery(timeout));
-        PlaceholderRegistry.init(this);
+        PlaceholderRegistry.init();
         this.updateServers();
     }
 
