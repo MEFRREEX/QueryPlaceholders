@@ -66,6 +66,6 @@ Dependency
 <dependency>
     <groupId>com.github.MEFRREEX</groupId>
     <artifactId>QueryPlaceholders</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 </dependency>
 ```
