@@ -33,6 +33,9 @@ servers:
     port: 19132
 ```
 
+## 🧩 Addons
+- [QueryPlaceholders-OnlineSummator](https://github.com/MEFRREEX/QueryPlaceholders-OnlineSummator)
+
 ## 🛠 API
 Getting QueryPlaceholders class
 ```java
