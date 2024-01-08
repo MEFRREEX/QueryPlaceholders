@@ -1,6 +1,11 @@
 ## 🎮 How to use
 You can use query placeholders in any plugin that has PlaceholderAPI support
 
+**Player count placeholder**    
+In this placeholder you can specify multiple servers for online summation    
+Example: `%query_player_count<zeqa;nethergames>%`
+
+
 ## 🖨️ Placeholders
 `%query_player_count<server_name>%` - Placeholder for display the number of players
 
