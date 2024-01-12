@@ -8,6 +8,7 @@ import com.mefrreex.queryplaceholders.query.BedrockQueryResponse;
 import com.mefrreex.queryplaceholders.query.BedrockQueryFactory;
 import com.mefrreex.queryplaceholders.task.UpdateQueryTask;
 import com.mefrreex.queryplaceholders.utils.ServerEntry;
+import com.mefrreex.queryplaceholders.utils.metrics.MetricsLoader;
 import lombok.Getter;
 
 import java.util.HashMap;
@@ -35,6 +36,7 @@ public class QueryPlaceholders extends PluginBase {
         this.loadServers();
         this.loadConfig();
         this.scheduleTask();
+        this.loadMetrics();
         BedrockQueryFactory.setBedrockQuery(new BedrockQuery(timeout));
         PlaceholderRegistry.init();
         this.updateServers();
@@ -69,6 +71,14 @@ public class QueryPlaceholders extends PluginBase {
     private void scheduleTask() {
         this.getServer().getScheduler().scheduleRepeatingTask(this, 
             new UpdateQueryTask(this), this.getUpdate());
+    }
+
+    /**
+     * Load Metrics
+     */
+    private void loadMetrics() {
+        MetricsLoader metrics = new MetricsLoader();
+        metrics.addCustomMetrics();
     }
 
     /**
